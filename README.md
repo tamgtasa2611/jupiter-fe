@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It is also modified by TamND with useful additional packages like ESLint, Prettier, Husky, Json-server, etc.
 
 ## Getting Started
 
@@ -10,6 +10,8 @@ npm run dev
 # run the json-server (Fake REST-API)
 npm run be
 ```
+
+Then, paste these 2 links into your browser to start coding: 
 
 🌈Development server: [http://localhost:3000](http://localhost:3000)
 
