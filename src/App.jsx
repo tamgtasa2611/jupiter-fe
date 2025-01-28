@@ -1,39 +1,30 @@
-import { useState } from "react";
-import "./App.css";
-import { Button, ConfigProvider } from "antd";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AdminLayout from './pages/layouts/AdminLayout';
+import Login from './pages/admin/Login';
+import Dashboard from './pages/admin/Dashboard';
+import Home from './pages/customer/Home';
+import About from './pages/customer/About';
 
-import enUS from "antd/locale/en_US";
-import viVN from "antd/locale/vi_VN";
-import dayjs from "dayjs";
-
-import "dayjs/locale/vi";
-
-dayjs.locale("vi");
-
-function App() {
-  const [locale, setLocal] = useState(viVN);
-  const [count, setCount] = useState(0);
-  const changeLocale = (e) => {
-    const localeValue = e.target.value;
-    setLocal(localeValue);
-    if (!localeValue) {
-      dayjs.locale("vi");
-    } else {
-      dayjs.locale("en");
-    }
-  };
-
+const App = () => {
   return (
-    <ConfigProvider locale={locale}>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <Button onClick={() => setCount((count) => count + 1)}>count is {count}</Button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-    </ConfigProvider>
+    <BrowserRouter>
+      <Routes>
+        {/* Admin Routes  */}
+        <Route path="/admin" element={<AdminLayout />}>
+          {/* Admin Authorization */}
+          <Route path="login" element={<Login />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="*" />
+        </Route>
+
+        {/* Customer Routes */}
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
