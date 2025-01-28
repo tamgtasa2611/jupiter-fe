@@ -5,6 +5,7 @@ import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
 import Home from './pages/customer/Home';
 import About from './pages/customer/About';
+import CustomerLayout from './pages/layouts/CustomerLayout';
 
 const App = () => {
   return (
@@ -19,9 +20,11 @@ const App = () => {
         </Route>
 
         {/* Customer Routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" />
+        <Route element={<CustomerLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
